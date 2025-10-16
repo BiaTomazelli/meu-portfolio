@@ -1,28 +1,115 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Lottie Animation
+    async function initHeroLottieAnimation() {
+        const animationContainer = document.getElementById('hero-animation');
+
+        if (!animationContainer) {
+            console.error('Animation container not found');
+            return;
+        }
+
+        console.log('Loading Lottie animation...');
+
+        try {
+            // First try to fetch the JSON file
+            const response = await fetch('./images/heroanimation.json');
+
+            if (!response.ok) {
+                throw new Error(`Failed to load animation: ${response.status} ${response.statusText}`);
+            }
+
+            const animationData = await response.json();
+            console.log('Animation JSON loaded successfully');
+
+            // Load animation with the fetched data
+            const animation = lottie.loadAnimation({
+                container: animationContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                animationData: animationData
+            });
+
+            animation.addEventListener('complete', function() {
+                console.log('Lottie animation loaded and playing');
+            });
+
+            animation.addEventListener('loopComplete', function() {
+                console.log('Lottie animation loop completed');
+            });
+
+            console.log('Lottie animation initialized successfully');
+
+        } catch (error) {
+            console.error('Error loading Lottie animation:', error);
+
+            // Try alternative path in case of relative path issues
+            try {
+                console.log('Trying alternative loading method...');
+                const animation = lottie.loadAnimation({
+                    container: animationContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'images/heroanimation.json'
+                });
+
+                animation.addEventListener('complete', function() {
+                    console.log('Lottie animation loaded successfully (alternative method)');
+                });
+
+            } catch (fallbackError) {
+                console.error('Alternative loading method also failed:', fallbackError);
+                showFallbackContent(animationContainer);
+            }
+        }
+
+        // Fallback timeout in case animation doesn't load
+        setTimeout(() => {
+            if (animationContainer.children.length === 0 || animationContainer.innerHTML.trim() === '') {
+                console.warn('Animation not loaded after 5 seconds, showing fallback');
+                showFallbackContent(animationContainer);
+            }
+        }, 5000);
+    }
+
+    function showFallbackContent(container) {
+        container.innerHTML = '<h1 style="font-family: Montserrat, sans-serif; color: #161616; font-size: 4rem; font-weight: 600; margin: 0; text-align: center;">Hello, I\'m<br>Bia Tomazelli</h1>';
+    }
+
     // Mobile Navigation Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
 
     // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.remove('hidden');
+        });
+    }
+
+    // Close mobile menu
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+        });
+    }
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
         });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
         }
     });
 
@@ -63,15 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navbar background on scroll
+    // Navbar background on scroll (updated for new design)
     function updateNavbarBackground() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
+        const navbar = document.querySelector('header');
+        if (navbar && window.scrollY > 100) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else if (navbar) {
+            navbar.style.background = 'transparent';
+            navbar.style.backdropFilter = 'none';
         }
     }
 
@@ -126,30 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Typing animation for hero title
-    function initTypingAnimation() {
-        const heroTitle = document.querySelector('.hero-title');
-        if (heroTitle) {
-            const text = heroTitle.innerHTML;
-            heroTitle.innerHTML = '';
-            heroTitle.style.borderRight = '2px solid var(--primary-color)';
-
-            let i = 0;
-            function typeWriter() {
-                if (i < text.length) {
-                    heroTitle.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                } else {
-                    setTimeout(() => {
-                        heroTitle.style.borderRight = 'none';
-                    }, 1000);
-                }
-            }
-
-            setTimeout(typeWriter, 500);
-        }
-    }
 
     // Form handling
     function initFormHandling() {
@@ -329,10 +392,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
     // Initialize everything
     function init() {
+        initHeroLottieAnimation();
         initScrollAnimations();
-        initTypingAnimation();
         initFormHandling();
         initSkillHoverEffects();
 
@@ -340,6 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveNavLink();
         updateNavbarBackground();
         animateOnScroll();
+
 
         // Scroll event listeners
         let ticking = false;
@@ -389,9 +454,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Keyboard navigation support
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        if (e.key === 'Escape' && mobileMenu) {
+            mobileMenu.classList.add('hidden');
         }
     });
 

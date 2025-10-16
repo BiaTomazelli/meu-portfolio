@@ -4,46 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Nome - Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Seu Nome</a>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">Sobre</a>
-                <a href="#projects" class="nav-link">Projetos</a>
-                <a href="#contact" class="nav-link">Contato</a>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <div class="bg-white">
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+                <div class="flex lg:flex-1">
+                    <a href="#home" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Seu Nome</span>
+                        <span class="text-xl font-bold text-indigo-600">Seu Nome</span>
+                    </a>
+                </div>
+                <div class="flex lg:hidden">
+                    <button type="button" id="mobile-menu-button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="w-6 h-6">
+                            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#home" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Home</a>
+                    <a href="#about" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Sobre</a>
+                    <a href="#projects" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Projetos</a>
+                    <a href="#contact" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Contato</a>
+                </div>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="#contact" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Entre em Contato <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Olá, eu sou <span class="highlight">Seu Nome</span></h1>
-            <p class="hero-subtitle">Desenvolvedor Full Stack</p>
-            <p class="hero-description">Criando experiências digitais incríveis com tecnologias modernas</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="lg:hidden hidden">
+                <div class="fixed inset-0 z-50"></div>
+                <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex items-center justify-between">
+                        <a href="#home" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Seu Nome</span>
+                            <span class="text-xl font-bold text-indigo-600">Seu Nome</span>
+                        </a>
+                        <button type="button" id="mobile-menu-close" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="w-6 h-6">
+                                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/10">
+                            <div class="space-y-2 py-6">
+                                <a href="#home" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Home</a>
+                                <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Sobre</a>
+                                <a href="#projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Projetos</a>
+                                <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Contato</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <div class="profile-circle">
-                <i class="fas fa-user"></i>
+        </header>
+
+        <section id="home" class="px-6 pt-14 lg:px-8 relative" style="background-color: white; padding: 148px 248px;">
+            <div class="text-center max-w-4xl mx-auto">
+                <div id="hero-animation" class="hero-lottie-container"></div>
+                <p class="mt-8 text-lg font-medium sm:text-xl" style="color: #161616;">UX/UI Designer specialized in Design Systems, crafting simple, scalable, and consistent digital experiences.</p>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section id="about" class="about">
         <div class="container">
