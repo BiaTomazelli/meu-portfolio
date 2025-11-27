@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dex UI Revamp - Beatriz Tomazelli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-center h-16 relative">
+                <!-- Logo/Name - Positioned on the left -->
+                <div class="absolute left-0 flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors duration-200" style="font-family: 'Montserrat', sans-serif;" data-translate="header-name">Beatriz Tomazelli</a>
+                    <div class="ml-6 h-6 w-px bg-gray-300"></div>
+
+                    <!-- Language Selector - After divisor -->
+                    <div class="hidden md:block relative ml-4">
+                        <div class="language-selector-wrapper relative">
+                            <button type="button" class="language-selector-button flex items-center space-x-2 bg-transparent px-2 py-1 text-gray-900 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif; color: #1f2937 !important;">
+                                <span class="language-text text-sm font-semibold" style="color: #1f2937 !important; display: block !important; visibility: visible !important;">English</span>
+                                <img src="images/flag-us.svg" alt="US Flag" class="language-flag w-4 h-4 rounded-full object-cover border border-gray-200" />
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div class="language-dropdown absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-20 min-w-max">
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">English</span>
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">Português</span>
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links - Centered -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="index.html#career" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="index.html#projects" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+                </nav>
+
+                <!-- Upload CV & Contact Button - Positioned on the right -->
+                <div class="absolute right-0 flex items-center space-x-6">
+                    <!-- Upload CV button - Desktop -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="hidden md:inline-flex items-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium transition-all duration-200 hover:border-gray-400 hover:scale-105" style="font-family: 'Montserrat', sans-serif;">
+                        Upload CV
+                    </a>
+
+                    <!-- Contact me button - Desktop -->
+                    <a href="index.html#contact" class="hidden md:inline-flex items-center px-6 py-2 rounded-full text-white font-medium transition-all duration-200 hover:opacity-90 hover:scale-105" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">
+                        Contact me
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" class="mobile-menu-button text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900" aria-label="Toggle mobile menu">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200">
+                    <a href="index.html#home" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="index.html#about" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="index.html#career" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="index.html#projects" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+
+                    <!-- Language Selector - Mobile -->
+                    <div class="px-3 py-2">
+                        <div class="language-selector-mobile-wrapper">
+                            <button type="button" class="language-selector-mobile-button flex items-center justify-between w-full bg-transparent rounded-full px-4 py-2 text-gray-700 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif;">
+                                <div class="flex items-center space-x-2">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="language-flag-mobile w-5 h-3" />
+                                    <span class="language-text-mobile">English</span>
+                                </div>
+                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Mobile dropdown menu -->
+                            <div class="language-dropdown-mobile mt-1 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                    <span>English</span>
+                                </button>
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                    <span>Português</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload CV button - Mobile -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="block mx-3 my-2 px-6 py-2 rounded-full border border-gray-300 text-gray-700 text-center font-medium transition-all duration-200 hover:border-gray-400" style="font-family: 'Montserrat', sans-serif;">Upload CV</a>
+
+                    <a href="index.html#contact" class="block mx-3 my-2 px-6 py-2 rounded-full text-white text-center font-medium transition-all duration-200 hover:opacity-90" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">Contact me</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pb-16">
+        <!-- Hero Section -->
+        <section class="px-6 lg:px-8 mb-0 relative overflow-hidden">
+            <!-- Background that ends at image middle -->
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, #f5f5f5 0%, #f5f5f5 calc(50% + 150px), transparent calc(50% + 150px), transparent 100%);"></div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- Project Title -->
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight" style="font-family: 'Montserrat', sans-serif;">
+                        dex UI Revamp
+                    </h1>
+                </div>
+
+                <!-- Project Mockup Image -->
+                <div class="text-center mb-0">
+                    <div class="relative overflow-hidden shadow-2xl cursor-pointer" style="border-radius: 32px;">
+                        <img src="images/ui revamp hero.svg" alt="Dex UI Revamp Project" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="remove-all-padding">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <!-- Content wrapper for better readability while maintaining alignment -->
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="project-context">Context</h2>
+                    <div class="prose prose-lg text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+                        <p class="mb-6" data-translate="dex-context">
+                            Data Engineering is inherently hard, complex, technical, and inaccessible to most companies and teams. While dex is a data engineering tool, over 60% of users lack deep technical knowledge, creating a usability gap. The mission was to obsessively pursue simplicity, transforming complex data engineering workflows into intuitive experiences that empowered all users—from seasoned engineers to business analysts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legacy Interface Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <!-- Content and image aligned to full container width -->
+                <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="legacy-interface-title">Legacy interface</h2>
+
+                <!-- Text content with readable width -->
+                <div class="max-w-4xl">
+                    <p class="text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="legacy-interface-intro">
+                        Our legacy interface was hindering both user success and team productivity.
+                    </p>
+
+                    <!-- Problems List -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;" data-translate="problems-title">Problems</h3>
+                        <ul class="space-y-3 text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span data-translate="problem-1"><strong style="color: #57A2B8;">Users struggled with an outdated interface</strong>, inconsistent compared to modern competitors.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span data-translate="problem-2"><strong style="color: #57A2B8;">Inconsistent UI patterns across flows</strong> created confusion and reduced task completion rates.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span data-translate="problem-3"><strong style="color: #57A2B8;">No centralized design system</strong> led to fragmented experiences</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span data-translate="problem-4"><strong style="color: #57A2B8;">Product team unable to deliver cohesive experiences</strong> due to design debt</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span data-translate="problem-5"><strong style="color: #57A2B8;">Dev team wasting time rebuilding components</strong> instead of focusing on features</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Legacy Interface Image - Full container width for perfect alignment with hero -->
+                <div class="mt-16">
+                    <div class="relative overflow-hidden shadow-2xl" style="border-radius: 32px;">
+                        <img id="legacy-image" src="images/legacy interface.svg" alt="Legacy Interface" class="w-full h-auto object-cover transition-transform duration-300" style="transform: scale(1);">
+
+                        <!-- Zoom Controls -->
+                        <div class="absolute top-4 right-4 flex flex-col gap-2">
+                            <!-- Zoom In Button -->
+                            <button id="zoom-in-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Zoom In">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 6V18M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+
+                            <!-- Zoom Out Button -->
+                            <button id="zoom-out-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Zoom Out">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+
+                            <!-- Reset Zoom Button -->
+                            <button id="reset-zoom-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Reset Zoom">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4V10H7M23 20V14H17M20.49 9A9 9 0 0 0 5.64 5.64L1 10M22.99 14L18.35 18.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Image Subtitle -->
+                    <p class="text-lg text-gray-600 mt-4 text-center" style="font-family: 'Montserrat', sans-serif;" data-translate="legacy-interface-caption">
+                        Inconsistent button styles and poor visual hierarchy throughout the interface
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Process Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="process-title">Process</h2>
+
+                <!-- Content with readable width -->
+                <div class="max-w-4xl">
+                    <p class="text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="process-intro">
+                        A systematic approach to transforming complex data engineering workflows into intuitive user experiences.
+                    </p>
+
+                    <!-- Process List -->
+                    <div class="mb-8">
+                        <ul class="space-y-2 text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span class="text-lg" data-translate="process-1">Competitors benchmarking and customer discovery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span class="text-lg" data-translate="process-2">Wireframes → low fidelity → high fidelity</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span class="text-lg" data-translate="process-3">Validations with dev and product team</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span class="text-lg" data-translate="process-4">Design System creation</span>
+                            </li>
+                        </ul>
+
+                        <!-- Research & Benchs Title -->
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="research-title">Research & Benchs</h3>
+
+                        <!-- Research & Benchs Details -->
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="ui-audit-title">UI audit of the platform</h4>
+                                <p class="text-gray-600" style="font-family: 'Montserrat', sans-serif;" data-translate="ui-audit-description">
+                                    Led a collaborative UI audit alongside product and development teams to assess the current state of the platform. Identified critical pain points, UI inconsistencies, and usability issues, gathering valuable insights and suggestions from cross-functional stakeholders to drive design improvements.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="competitors-title">Competitors Benchmarks</h4>
+                                <p class="text-gray-600 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="competitors-description">
+                                    Led a comprehensive competitive analysis studying major competitors and aspirational industry leaders including Brex, dbt, Databricks, and Snowflake. Identified design patterns, user experience best practices, and innovative features to inform strategic design decisions.
+                                </p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitors Benchmarks Image Section - Full grid width -->
+        <section class="remove-all-padding">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <div class="mt-16">
+                    <div class="relative overflow-hidden shadow-2xl" style="border-radius: 32px;">
+                        <img src="images/competitors benchs.svg" alt="Competitors Benchmarks Analysis" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priorities Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <!-- Content with readable width -->
+                <div class="max-w-4xl">
+                    <!-- Priorities Title -->
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="priorities-title">Priorities</h3>
+
+                    <!-- Priorities Description -->
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="priorities-description">
+                        Established a prioritization framework centered on the platform's three most critical workflows: Transformation (enabling users to clean, structure, and prepare data), Ingestion (facilitating seamless data import from various sources), and Orchestration (automating and managing complex pipeline execution). These workflows represent the core of the user's daily activities and directly impact their ability to deliver value. Focusing on these high-frequency, high-stakes areas ensured maximum impact on user productivity and platform adoption.
+                    </p>
+
+                    <!-- Workflow Images -->
+                    <div class="space-y-8 mb-8">
+                        <!-- Transformation -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;" data-translate="transformation-title">Transformation</h4>
+                            <img src="images/Transformation.svg" alt="Transformation Workflow" class="w-full h-auto rounded-lg">
+                        </div>
+
+                        <!-- Ingestion -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;" data-translate="ingestion-title">Ingestion</h4>
+                            <img src="images/Ingestion.svg" alt="Ingestion Workflow" class="w-full h-auto rounded-lg">
+                        </div>
+
+                        <!-- Orchestration -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;" data-translate="orchestration-title">Orchestration</h4>
+                            <img src="images/Orchestration.svg" alt="Orchestration Workflow" class="w-full h-auto rounded-lg">
+                        </div>
+                    </div>
+
+                    <!-- Execution and Deliverables Title -->
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="execution-title">Execution and Deliverables</h3>
+
+                    <!-- Execution and Deliverables List -->
+                    <ul class="text-lg text-gray-600 leading-relaxed mb-8 space-y-3" style="font-family: 'Montserrat', sans-serif;">
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-1">Validated concepts through wireframes and low-fidelity testing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-2">Built scalable design system with tokens and component standards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-3">Prototyped high-fidelity interfaces for core user flows</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-4">Facilitated iterative feedback through structured design sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-5">Validated technical stack using Radix UI and React components</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-6">Documented component library with usage guidelines and specs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="execution-7">Delivered seamless handoff with detailed implementation guidelines</span>
+                        </li>
+                    </ul>
+
+                    <!-- Wireframes Image -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;">Wireframes</h4>
+                        <img src="images/Wireframes.svg" alt="Wireframes" class="w-full h-auto rounded-lg">
+                    </div>
+
+                    <!-- Design System Section -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;">Design System</h4>
+                        <div class="space-y-4">
+                            <img src="images/Button-DS.svg" alt="Design System Components" class="w-full h-auto rounded-lg">
+                            <img src="images/File tree.svg" alt="Design System File Structure" class="w-full h-auto rounded-lg">
+                        </div>
+                    </div>
+
+                    <!-- Handoff Section -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Montserrat', sans-serif;">Handoff</h4>
+                        <img src="images/Design Spec.svg" alt="Design Specifications for Handoff" class="w-full h-auto rounded-lg mb-3">
+                        <p class="text-sm text-gray-600" style="font-family: 'Montserrat', sans-serif; text-align: left !important;" data-translate="handoff-caption">Notification Center project handoff</p>
+                    </div>
+
+                    <!-- Solutions Title -->
+                    <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 mt-16" style="font-family: 'Montserrat', sans-serif;" data-translate="solutions-title">Solutions</h2>
+
+                    <!-- Run button improvements Section -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="run-button-title">Run button improvements x dbt</h3>
+
+                        <!-- Run button description -->
+                        <div class="text-lg text-gray-600 leading-relaxed space-y-4" style="font-family: 'Montserrat', sans-serif;">
+                            <p data-translate="run-button-p1">
+                                In data engineering platforms, the Run button represents the most frequent and critical user interaction—it executes data transformations, validates logic, and delivers results. This seemingly simple component carries immense weight: users need confidence that their pipelines will run correctly, clear feedback on execution status, and quick access to results or error logs.
+                            </p>
+                            <p data-translate="run-button-p2">
+                                We studied industry leader dbt (valued at over $4 billion) and discovered their Run functionality, while powerful, presented users with overwhelming choices and unclear execution states. Multiple run options, inconsistent feedback patterns, and complex modal interactions created unnecessary cognitive load during a high-stakes moment.
+                            </p>
+                            <p data-translate="run-button-p3">
+                                Leveraging our restructured Design System, we designed a reimagined Run button that prioritized clarity and simplicity. Our solution consolidated execution options into an intuitive interface, provided clear visual feedback throughout the process, and reduced steps to value. This case study exemplifies how a well-implemented design system empowers smaller companies to outperform billion-dollar competitors through superior user experience design.
+                            </p>
+                        </div>
+
+                        <!-- dex x dbt comparison image -->
+                        <div class="mt-6">
+                            <div class="relative overflow-hidden shadow-2xl" style="border-radius: 32px;">
+                                <img id="dex-dbt-image" src="images/dex x dbt.svg" alt="Dex vs dbt Run Button Comparison" class="w-full h-auto object-cover transition-transform duration-300" style="transform: scale(1);">
+
+                                <!-- Zoom Controls -->
+                                <div class="absolute top-4 right-4 flex flex-col gap-2">
+                                    <!-- Zoom In Button -->
+                                    <button id="dex-dbt-zoom-in-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Zoom In">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 6V18M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+
+                                    <!-- Zoom Out Button -->
+                                    <button id="dex-dbt-zoom-out-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Zoom Out">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+
+                                    <!-- Reset Zoom Button -->
+                                    <button id="dex-dbt-reset-zoom-btn" class="bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110" title="Reset Zoom">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 4V10H7M23 20V14H17M20.49 9A9 9 0 0 0 5.64 5.64L1 10M22.99 14L18.35 18.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Git Experience Title -->
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6 mt-16" style="font-family: 'Montserrat', sans-serif;" data-translate="git-experience-title">Git Experience</h3>
+
+                    <!-- Git Experience List -->
+                    <ul class="text-lg text-gray-600 leading-relaxed mb-8 space-y-3" style="font-family: 'Montserrat', sans-serif;">
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="git-exp-1">Essential for engineers, intimidating for non-technical users</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="git-exp-2">Replaced command-line complexity with visual workflows</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="git-exp-3">Removed technical jargon like "unstaged" and "staged"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="git-exp-4">Simplified push/pull actions into guided flows</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                            <span data-translate="git-exp-5">Increased accessibility and reduced user errors</span>
+                        </li>
+                    </ul>
+
+                    <!-- Git Experience Image -->
+                    <img src="images/git.svg" alt="Git Experience Design" class="w-full h-auto rounded-lg mt-6">
+                    </div>
+
+                    <!-- Before & After Section -->
+                    <div class="mb-8 mt-16">
+                        <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-12" style="font-family: 'Montserrat', sans-serif;" data-translate="before-after-title">Before & After</h2>
+
+                        <!-- Before & After Images -->
+                        <div class="space-y-8">
+                            <!-- Before Image -->
+                            <div>
+                                <img src="images/Before.svg" alt="Orchestration before UI Revamp" class="w-full h-auto rounded-lg mb-3">
+                                <p class="text-sm text-gray-600" style="font-family: 'Montserrat', sans-serif; text-align: left !important;" data-translate="before-caption">Orchestration before the UI Revamp</p>
+                            </div>
+
+                            <!-- After Image -->
+                            <div>
+                                <img src="images/After.svg" alt="Orchestration after UI Revamp" class="w-full h-auto rounded-lg mb-3">
+                                <p class="text-sm text-gray-600" style="font-family: 'Montserrat', sans-serif; text-align: left !important;" data-translate="after-caption">Orchestration after the UI Revamp</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="mb-8 mt-16">
+                        <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-12" style="font-family: 'Montserrat', sans-serif; color: #1f2937 !important; display: block !important; visibility: visible !important;" data-translate="results-title">Results</h2>
+
+                        <!-- Results Grid -->
+                        <div class="relative">
+                            <div class="grid grid-cols-1 md:grid-cols-2">
+                                <!-- Top Left: 3 months implementation -->
+                                <div class="bg-white p-8 border-r border-b border-gray-200">
+                                    <div class="text-3xl font-bold text-orange-600 mb-2" style="font-family: 'Montserrat', sans-serif;">3 months</div>
+                                    <div class="text-lg text-gray-700" style="font-family: 'Montserrat', sans-serif;" data-translate="result-1-desc">implementation</div>
+                                </div>
+
+                                <!-- Top Right: Higher sales conversion -->
+                                <div class="bg-white p-8 border-b border-gray-200">
+                                    <div class="text-3xl font-bold text-blue-600 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="result-2-metric">Higher</div>
+                                    <div class="text-lg text-gray-700" style="font-family: 'Montserrat', sans-serif;" data-translate="result-2-desc">sales conversion from<br>demo to contract</div>
+                                </div>
+
+                                <!-- Bottom Left: Less bugs and UI rework -->
+                                <div class="bg-white p-8 border-r border-gray-200">
+                                    <div class="text-3xl font-bold text-purple-600 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="result-3-metric">Less</div>
+                                    <div class="text-lg text-gray-700" style="font-family: 'Montserrat', sans-serif;" data-translate="result-3-desc">bugs and UI rework</div>
+                                </div>
+
+                                <!-- Bottom Right: Solid foundation -->
+                                <div class="bg-white p-8">
+                                    <div class="text-3xl font-bold text-orange-600 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="result-4-metric">Solid</div>
+                                    <div class="text-lg text-gray-700" style="font-family: 'Montserrat', sans-serif;" data-translate="result-4-desc">foundation and<br>documentation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+            <p style="font-family: 'Montserrat', sans-serif;" data-translate="footer-text">
+                © 2025 Beatriz Tomazelli. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Zoom functionality script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Image Zoom and Drag Functionality for Legacy Interface Image
+            const legacyImage = document.getElementById('legacy-image');
+            const zoomInBtn = document.getElementById('zoom-in-btn');
+            const zoomOutBtn = document.getElementById('zoom-out-btn');
+            const resetZoomBtn = document.getElementById('reset-zoom-btn');
+            const imageContainer = legacyImage.parentElement;
+
+            if (!legacyImage || !zoomInBtn || !zoomOutBtn || !resetZoomBtn) {
+                console.log('Zoom controls not found');
+                return;
+            }
+
+            let currentZoom = 1;
+            const zoomStep = 0.2;
+            const minZoom = 0.5;
+            const maxZoom = 3;
+
+            // Drag functionality variables
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let translateX = 0;
+            let translateY = 0;
+
+            function updateTransform() {
+                legacyImage.style.transform = `scale(${currentZoom}) translate(${translateX}px, ${translateY}px)`;
+            }
+
+            function updateZoom(newZoom) {
+                currentZoom = Math.max(minZoom, Math.min(maxZoom, newZoom));
+
+                // Reset position when zooming out to 1x or less
+                if (currentZoom <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+
+                // Update cursor based on zoom level
+                if (currentZoom > 1) {
+                    legacyImage.style.cursor = 'move';
+                } else {
+                    legacyImage.style.cursor = 'default';
+                }
+
+                // Update button states
+                zoomInBtn.disabled = currentZoom >= maxZoom;
+                zoomOutBtn.disabled = currentZoom <= minZoom;
+
+                // Update button appearance based on state
+                if (currentZoom >= maxZoom) {
+                    zoomInBtn.style.opacity = '0.5';
+                    zoomInBtn.style.cursor = 'not-allowed';
+                } else {
+                    zoomInBtn.style.opacity = '1';
+                    zoomInBtn.style.cursor = 'pointer';
+                }
+
+                if (currentZoom <= minZoom) {
+                    zoomOutBtn.style.opacity = '0.5';
+                    zoomOutBtn.style.cursor = 'not-allowed';
+                } else {
+                    zoomOutBtn.style.opacity = '1';
+                    zoomOutBtn.style.cursor = 'pointer';
+                }
+
+                console.log('Current zoom:', currentZoom);
+            }
+
+            // Zoom In
+            zoomInBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateZoom(currentZoom + zoomStep);
+                console.log('Zoom in clicked');
+            });
+
+            // Zoom Out
+            zoomOutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateZoom(currentZoom - zoomStep);
+                console.log('Zoom out clicked');
+            });
+
+            // Reset Zoom
+            resetZoomBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                translateX = 0;
+                translateY = 0;
+                updateZoom(1);
+                console.log('Reset zoom clicked');
+            });
+
+            // Drag functionality
+            // Mouse events
+            legacyImage.addEventListener('mousedown', function(e) {
+                if (currentZoom > 1) {
+                    isDragging = true;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                    legacyImage.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging && currentZoom > 1) {
+                    translateX = e.clientX - startX;
+                    translateY = e.clientY - startY;
+                    updateTransform();
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    if (currentZoom > 1) {
+                        legacyImage.style.cursor = 'move';
+                    } else {
+                        legacyImage.style.cursor = 'default';
+                    }
+                }
+            });
+
+            // Touch events for mobile
+            legacyImage.addEventListener('touchstart', function(e) {
+                if (currentZoom > 1 && e.touches.length === 1) {
+                    isDragging = true;
+                    const touch = e.touches[0];
+                    startX = touch.clientX - translateX;
+                    startY = touch.clientY - translateY;
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('touchmove', function(e) {
+                if (isDragging && currentZoom > 1 && e.touches.length === 1) {
+                    const touch = e.touches[0];
+                    translateX = touch.clientX - startX;
+                    translateY = touch.clientY - startY;
+                    updateTransform();
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('touchend', function() {
+                if (isDragging) {
+                    isDragging = false;
+                }
+            });
+
+            // Prevent image drag default behavior
+            legacyImage.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+            // Initialize
+            updateZoom(1);
+
+            console.log('Zoom and drag functionality initialized');
+        });
+
+        // Dex x dbt image zoom functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dexDbtImage = document.getElementById('dex-dbt-image');
+            const dexDbtZoomInBtn = document.getElementById('dex-dbt-zoom-in-btn');
+            const dexDbtZoomOutBtn = document.getElementById('dex-dbt-zoom-out-btn');
+            const dexDbtResetZoomBtn = document.getElementById('dex-dbt-reset-zoom-btn');
+
+            if (!dexDbtImage || !dexDbtZoomInBtn || !dexDbtZoomOutBtn || !dexDbtResetZoomBtn) {
+                console.error('Dex vs dbt image zoom elements not found');
+                return;
+            }
+
+            let dexDbtCurrentZoom = 1;
+            const dexDbtZoomStep = 0.2;
+            const dexDbtMinZoom = 0.5;
+            const dexDbtMaxZoom = 3;
+
+            // Drag functionality variables
+            let dexDbtIsDragging = false;
+            let dexDbtStartX = 0;
+            let dexDbtStartY = 0;
+            let dexDbtTranslateX = 0;
+            let dexDbtTranslateY = 0;
+
+            function updateDexDbtTransform() {
+                dexDbtImage.style.transform = `scale(${dexDbtCurrentZoom}) translate(${dexDbtTranslateX}px, ${dexDbtTranslateY}px)`;
+            }
+
+            function updateDexDbtZoom(newZoom) {
+                dexDbtCurrentZoom = Math.max(dexDbtMinZoom, Math.min(dexDbtMaxZoom, newZoom));
+
+                // Reset position when zooming out to 1x or less
+                if (dexDbtCurrentZoom <= 1) {
+                    dexDbtTranslateX = 0;
+                    dexDbtTranslateY = 0;
+                }
+
+                updateDexDbtTransform();
+
+                // Update cursor based on zoom level
+                if (dexDbtCurrentZoom > 1) {
+                    dexDbtImage.style.cursor = 'move';
+                } else {
+                    dexDbtImage.style.cursor = 'default';
+                }
+
+                // Update button states
+                dexDbtZoomInBtn.disabled = dexDbtCurrentZoom >= dexDbtMaxZoom;
+                dexDbtZoomOutBtn.disabled = dexDbtCurrentZoom <= dexDbtMinZoom;
+
+                // Update button appearance based on state
+                if (dexDbtCurrentZoom >= dexDbtMaxZoom) {
+                    dexDbtZoomInBtn.style.opacity = '0.5';
+                    dexDbtZoomInBtn.style.cursor = 'not-allowed';
+                } else {
+                    dexDbtZoomInBtn.style.opacity = '1';
+                    dexDbtZoomInBtn.style.cursor = 'pointer';
+                }
+
+                if (dexDbtCurrentZoom <= dexDbtMinZoom) {
+                    dexDbtZoomOutBtn.style.opacity = '0.5';
+                    dexDbtZoomOutBtn.style.cursor = 'not-allowed';
+                } else {
+                    dexDbtZoomOutBtn.style.opacity = '1';
+                    dexDbtZoomOutBtn.style.cursor = 'pointer';
+                }
+            }
+
+            // Zoom In
+            dexDbtZoomInBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateDexDbtZoom(dexDbtCurrentZoom + dexDbtZoomStep);
+            });
+
+            // Zoom Out
+            dexDbtZoomOutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateDexDbtZoom(dexDbtCurrentZoom - dexDbtZoomStep);
+            });
+
+            // Reset Zoom
+            dexDbtResetZoomBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                dexDbtTranslateX = 0;
+                dexDbtTranslateY = 0;
+                updateDexDbtZoom(1);
+            });
+
+            // Drag functionality
+            // Mouse events
+            dexDbtImage.addEventListener('mousedown', function(e) {
+                if (dexDbtCurrentZoom > 1) {
+                    dexDbtIsDragging = true;
+                    dexDbtStartX = e.clientX - dexDbtTranslateX;
+                    dexDbtStartY = e.clientY - dexDbtTranslateY;
+                    dexDbtImage.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (dexDbtIsDragging && dexDbtCurrentZoom > 1) {
+                    dexDbtTranslateX = e.clientX - dexDbtStartX;
+                    dexDbtTranslateY = e.clientY - dexDbtStartY;
+                    updateDexDbtTransform();
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (dexDbtIsDragging) {
+                    dexDbtIsDragging = false;
+                    if (dexDbtCurrentZoom > 1) {
+                        dexDbtImage.style.cursor = 'move';
+                    } else {
+                        dexDbtImage.style.cursor = 'default';
+                    }
+                }
+            });
+
+            // Touch events for mobile
+            dexDbtImage.addEventListener('touchstart', function(e) {
+                if (dexDbtCurrentZoom > 1 && e.touches.length === 1) {
+                    dexDbtIsDragging = true;
+                    const touch = e.touches[0];
+                    dexDbtStartX = touch.clientX - dexDbtTranslateX;
+                    dexDbtStartY = touch.clientY - dexDbtTranslateY;
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('touchmove', function(e) {
+                if (dexDbtIsDragging && dexDbtCurrentZoom > 1 && e.touches.length === 1) {
+                    const touch = e.touches[0];
+                    dexDbtTranslateX = touch.clientX - dexDbtStartX;
+                    dexDbtTranslateY = touch.clientY - dexDbtStartY;
+                    updateDexDbtTransform();
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('touchend', function() {
+                if (dexDbtIsDragging) {
+                    dexDbtIsDragging = false;
+                }
+            });
+
+            // Prevent image drag default behavior
+            dexDbtImage.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+            // Initialize
+            updateDexDbtZoom(1);
+
+            console.log('Dex vs dbt image zoom and drag functionality initialized');
+        });
+    </script>
+</body>
+</html>

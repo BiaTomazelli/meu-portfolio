@@ -613,42 +613,294 @@ body {
 }
 
 
-/* Hero Lottie Animation Styles */
+/* Hero Lottie Animation Styles - MASSIVE letters dominating the viewport */
 .hero-lottie-container {
     width: 100%;
-    max-width: 600px;
-    height: 400px;
+    max-width: 1600px;
+    height: 75vh;
+    min-height: 650px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: visible;
+    padding: 0 10px;
 }
 
-.hero-lottie-container svg {
-    width: 100%;
-    height: 100%;
-    max-width: 600px;
-    max-height: 400px;
+.lottie-animation {
+    width: 95vw;
+    max-width: 1600px;
+    height: 75vh;
+    min-height: 650px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: scale(1.3);
+    transform-origin: center;
 }
 
-/* Responsive adjustments for Lottie animation */
+.lottie-animation svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+}
+
+/* HUGE text/letter sizing to dominate viewport */
+.lottie-animation svg text,
+.lottie-animation svg tspan {
+    font-size: 150px !important;
+    font-weight: 900 !important;
+    letter-spacing: 3px !important;
+}
+
+/* Responsive adjustments - BIG letters on all screens */
+@media (max-width: 1200px) {
+    .hero-lottie-container {
+        max-width: 1400px;
+        height: 70vh;
+        min-height: 600px;
+    }
+
+    .lottie-animation {
+        width: 95vw;
+        max-width: 1400px;
+        height: 70vh;
+        min-height: 600px;
+        transform: scale(1.25);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 130px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-lottie-container {
+        height: 65vh;
+        min-height: 550px;
+    }
+
+    .lottie-animation {
+        width: 95vw;
+        height: 65vh;
+        min-height: 550px;
+        transform: scale(1.2);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 120px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-lottie-container {
-        max-width: 400px;
-        height: 300px;
+        height: 60vh;
+        min-height: 500px;
+        padding: 0 5px;
+    }
+
+    .lottie-animation {
+        width: 98vw;
+        height: 60vh;
+        min-height: 500px;
+        transform: scale(1.15);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 100px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-lottie-container {
+        height: 55vh;
+        min-height: 450px;
+        padding: 0;
+    }
+
+    .lottie-animation {
+        width: 100vw;
+        height: 55vh;
+        min-height: 450px;
+        transform: scale(1.1);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 85px !important;
     }
 }
 
 @media (max-width: 480px) {
     .hero-lottie-container {
-        max-width: 320px;
-        height: 250px;
+        height: 50vh;
+        min-height: 400px;
+    }
+
+    .lottie-animation {
+        width: 100vw;
+        height: 50vh;
+        min-height: 400px;
+        transform: scale(1.05);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 75px !important;
     }
 }
+
+@media (max-width: 360px) {
+    .hero-lottie-container {
+        height: 45vh;
+        min-height: 350px;
+    }
+
+    .lottie-animation {
+        height: 45vh;
+        min-height: 350px;
+        transform: scale(1.0);
+    }
+
+    .lottie-animation svg text,
+    .lottie-animation svg tspan {
+        font-size: 65px !important;
+    }
+}
+
+
+
+
+/* Add subtle glow effect */
+h2 .letter-h:hover {
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5) !important;
+}
+
+h2 .letter-o:hover {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5) !important;
+}
+
+/* GIF Letter Styles */
+.letter-gif {
+    display: inline-block !important;
+    height: 1em !important;
+    width: auto !important;
+    vertical-align: baseline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+}
+
+.letter-h-gif {
+    height: 1.1em !important;
+    vertical-align: -0.05em !important;
+}
+
+.letter-o-gif {
+    height: 1em !important;
+    vertical-align: baseline !important;
+}
+
+/* Responsive adjustments for GIF letters */
+@media (max-width: 768px) {
+    .letter-gif {
+        height: 0.9em !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-gif {
+        height: 0.8em !important;
+    }
+}
+
+/* Responsive adjustments for animated letters */
+@media (max-width: 768px) {
+    .letter-h {
+        animation-duration: 3s; /* Slightly slower on mobile */
+    }
+
+    .letter-o {
+        animation-duration: 2.2s; /* Slightly slower on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Reduce animation intensity on small screens */
+    @keyframes bounce-h {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        40% {
+            transform: translateY(-4px) scale(1.05); /* Less bounce */
+        }
+        60% {
+            transform: translateY(-2px) scale(1.02);
+        }
+    }
+
+    @keyframes pulse-o {
+        0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1) rotate(180deg); /* Less scaling */
+            opacity: 0.9;
+        }
+        100% {
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
+        }
+    }
+}
+
 
 /* Section Styles */
 section {
     padding: 80px 0;
+}
+
+/* Remove ALL padding from specific sections - Context and Legacy interface */
+.remove-all-padding,
+section.remove-all-padding,
+main section.remove-all-padding,
+body main section.remove-all-padding {
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Add spacing between sections when needed */
+.section-spacing {
+    margin-top: 120px !important;
+}
+
+/* Content alignment with hero image - consistent width across all sections */
+.content-container {
+    max-width: 1536px; /* max-w-6xl equivalent */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .content-container {
+        padding-left: 2rem; /* lg:px-8 */
+        padding-right: 2rem;
+    }
 }
 
 .section-title {
@@ -1103,36 +1355,425 @@ section {
     }
 }
 
-/* Utility Classes */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+
+/* About Section Layout Updates */
+/* Ensure proper spacing and responsive behavior for reorganized layout */
+.about-section-reorganized .about-images {
+    margin-bottom: 3rem;
 }
 
-.fade-in.visible {
+.about-section-reorganized .about-text-full-width {
+    margin-bottom: 3rem;
+}
+
+/* Mobile responsive adjustments for reorganized About section */
+@media (max-width: 1024px) {
+    .about-section-reorganized .flex.justify-center > div {
+        width: 100% !important;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section-reorganized .about-images {
+        margin-bottom: 2rem;
+    }
+
+    .about-section-reorganized .about-text-full-width {
+        margin-bottom: 2rem;
+    }
+
+    .about-section-reorganized .flex.justify-center > div {
+        width: 100% !important;
+    }
+}
+
+
+/* Company Logos Scale Animation - Multiple Targeting Approaches */
+
+/* Target by alt attribute (most specific) */
+img[alt="Itau"],
+img[alt="Santander"],
+img[alt="C&A"],
+img[alt="Dex"] {
+    transform: scale(1) !important;
+    transition: transform 0.3s ease !important;
+    cursor: pointer !important;
+    display: block !important;
+}
+
+img[alt="Itau"]:hover,
+img[alt="Santander"]:hover,
+img[alt="C&A"]:hover,
+img[alt="Dex"]:hover {
+    transform: scale(1.15) !important;
+}
+
+/* Target by grid container */
+.grid-cols-4 img {
+    transform: scale(1) !important;
+    transition: transform 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.grid-cols-4 img:hover {
+    transform: scale(1.15) !important;
+}
+
+/* Target by class combinations */
+img.company.logo,
+img.object-contain {
+    transform: scale(1) !important;
+    transition: transform 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+img.company.logo:hover,
+img.object-contain:hover {
+    transform: scale(1.15) !important;
+}
+
+/* Fallback - target all images in the companies section */
+.mx-auto.max-w-7xl img,
+div[class*="grid-cols-4"] img {
+    transform: scale(1) !important;
+    transition: transform 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.mx-auto.max-w-7xl img:hover,
+div[class*="grid-cols-4"] img:hover {
+    transform: scale(1.15) !important;
+}
+
+/* Scroll Animation CSS */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-animate.animate-in {
     opacity: 1;
     transform: translateY(0);
 }
 
-.slide-in-left {
+/* Specific scroll animations for different elements */
+.fade-in-up {
     opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.6s ease;
+    transform: translateY(60px);
+    transition: all 1s ease-out;
 }
 
-.slide-in-left.visible {
+.fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in-left.animate {
     opacity: 1;
     transform: translateX(0);
 }
 
-.slide-in-right {
+.fade-in-right {
     opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.6s ease;
+    transform: translateX(60px);
+    transition: all 0.8s ease-out;
 }
 
-.slide-in-right.visible {
+.fade-in-right.animate {
     opacity: 1;
     transform: translateX(0);
 }
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease-out;
+}
+
+.scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Staggered animation delays */
+.animate-delay-1 { transition-delay: 0.1s; }
+.animate-delay-2 { transition-delay: 0.2s; }
+.animate-delay-3 { transition-delay: 0.3s; }
+.animate-delay-4 { transition-delay: 0.4s; }
+.animate-delay-5 { transition-delay: 0.5s; }
+
+/* Interactive Skills Bars Enhancements */
+.skill-track {
+    background-color: rgba(135, 103, 171, 0.3) !important;
+}
+
+.skill-fill {
+    background-color: #8767ab !important;
+    transition: width 0.2s ease;
+}
+
+.skill-handle {
+    background-color: #e77f12 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-handle:hover {
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.skill-handle:active {
+    transform: translateY(-50%) scale(1.2) !important;
+}
+
+.skill-bar-container {
+    transition: all 0.3s ease;
+}
+
+.skill-bar-container:hover {
+    transform: translateY(-1px);
+}
+
+/* Toast notification animations */
+@keyframes toast-bounce-in {
+    0% {
+        transform: translateX(100%) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-5%) scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.playful-toast {
+    animation: toast-bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Add some visual feedback for dragging */
+.skill-handle {
+    position: relative;
+}
+
+.skill-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-handle:hover::before {
+    opacity: 1;
+}
+
+/* About Me Accordion Styles */
+.accordion-header {
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    color: #8767ab;
+    transform: translateY(-2px);
+}
+
+.accordion-header:hover h2 {
+    color: #8767ab !important;
+}
+
+/* Clean arrow without background - sized to match title weight */
+.accordion-arrow-clean {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover .accordion-arrow-clean {
+    transform: translateY(-2px);
+}
+
+.accordion-arrow-clean svg {
+    transition: transform 0.3s ease;
+    filter: none !important;
+    background: none !important;
+    /* Make the arrow bold and prominent to match title weight */
+    stroke-width: 2.5;
+}
+
+/* Arrow rotation for collapsed state */
+.accordion-arrow-clean.rotated svg {
+    transform: rotate(180deg);
+}
+
+/* Hover effects for accordion headers */
+.accordion-header:hover {
+    color: #8767ab;
+}
+
+.accordion-header:hover .accordion-arrow-clean svg {
+    color: #8767ab !important;
+}
+
+/* Enhanced visual feedback for large arrow */
+.accordion-header:hover .accordion-arrow-clean {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Legacy arrow styles (keeping for compatibility) */
+.accordion-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover .accordion-arrow {
+    background-color: #8767ab;
+    color: white;
+    transform: scale(1.1);
+}
+
+.accordion-arrow svg {
+    transition: transform 0.3s ease;
+}
+
+.accordion-arrow.rotated svg {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content - Show by default, hide when collapsed */
+.accordion-content {
+    max-height: 9999px;
+    overflow: visible;
+    opacity: 1;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    display: block;
+}
+
+.accordion-content.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    display: block;
+}
+
+/* Projects accordion uses standard accordion pattern */
+
+/* Enhanced visual feedback */
+@media (hover: hover) {
+    .accordion-header {
+        cursor: pointer;
+    }
+
+    .accordion-header:hover {
+        filter: drop-shadow(0 4px 8px rgba(135, 103, 171, 0.2));
+    }
+}
+
+/* Mobile accessibility */
+@media (max-width: 768px) {
+    .accordion-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .accordion-header:active {
+        color: #8767ab;
+        transform: scale(0.98);
+    }
+}
+
+/* Timeline Styles */
+.timeline-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Timeline card hover effects */
+.timeline-item .bg-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-item .flex-1:first-child {
+        display: none;
+    }
+
+    .timeline-item .flex-1:last-child {
+        flex: 1;
+        padding-left: 2rem !important;
+        text-align: left !important;
+    }
+
+    .timeline-item .absolute.left-1\/2 {
+        left: 1rem !important;
+        transform: translateX(0) !important;
+    }
+
+    .absolute.left-1\/2.w-1 {
+        left: 1rem !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* Language Selector Styles */
+.language-dropdown {
+    min-width: 120px;
+    z-index: 50;
+}
+
+.language-dropdown.hidden {
+    display: none;
+}
+
+.language-dropdown-mobile {
+    z-index: 50;
+}
+
+.language-dropdown-mobile.hidden {
+    display: none;
+}
+
+.language-option:hover,
+.language-option-mobile:hover {
+    background-color: #f9fafb;
+}
+
+.language-selector-button:focus,
+.language-selector-mobile-button:focus {
+    outline: 2px solid #57A2B8;
+    outline-offset: 2px;
+}
+
+
+
+

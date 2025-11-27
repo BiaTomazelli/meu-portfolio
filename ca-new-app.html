@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&A New App Design System - Beatriz Tomazelli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-center h-16 relative">
+                <!-- Logo/Name - Positioned on the left -->
+                <div class="absolute left-0 flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors duration-200" style="font-family: 'Montserrat', sans-serif;" data-translate="header-name">Beatriz Tomazelli</a>
+                    <div class="ml-6 h-6 w-px bg-gray-300"></div>
+
+                    <!-- Language Selector - After divisor -->
+                    <div class="hidden md:block relative ml-4">
+                        <div class="language-selector-wrapper relative">
+                            <button type="button" class="language-selector-button flex items-center space-x-2 bg-transparent px-2 py-1 text-gray-900 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif; color: #1f2937 !important;">
+                                <span class="language-text text-sm font-semibold" style="color: #1f2937 !important; display: block !important; visibility: visible !important;">English</span>
+                                <img src="images/flag-us.svg" alt="US Flag" class="language-flag w-4 h-4 rounded-full object-cover border border-gray-200" />
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div class="language-dropdown absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-20 min-w-max">
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">English</span>
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">Português</span>
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links - Centered -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="index.html#career" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="index.html#projects" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+                </nav>
+
+                <!-- Upload CV & Contact Button - Positioned on the right -->
+                <div class="absolute right-0 flex items-center space-x-6">
+                    <!-- Upload CV button - Desktop -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="hidden md:inline-flex items-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium transition-all duration-200 hover:border-gray-400 hover:scale-105" style="font-family: 'Montserrat', sans-serif;">
+                        Upload CV
+                    </a>
+
+                    <!-- Contact me button - Desktop -->
+                    <a href="index.html#contact" class="hidden md:inline-flex items-center px-6 py-2 rounded-full text-white font-medium transition-all duration-200 hover:opacity-90 hover:scale-105" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">
+                        Contact me
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" class="mobile-menu-button text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900" aria-label="Toggle mobile menu">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200">
+                    <a href="index.html#home" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="index.html#about" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="index.html#career" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="index.html#projects" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+
+                    <!-- Language Selector - Mobile -->
+                    <div class="px-3 py-2">
+                        <div class="language-selector-mobile-wrapper">
+                            <button type="button" class="language-selector-mobile-button flex items-center justify-between w-full bg-transparent rounded-full px-4 py-2 text-gray-700 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif;">
+                                <div class="flex items-center space-x-2">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="language-flag-mobile w-5 h-3" />
+                                    <span class="language-text-mobile">English</span>
+                                </div>
+                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Mobile dropdown menu -->
+                            <div class="language-dropdown-mobile mt-1 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                    <span>English</span>
+                                </button>
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                    <span>Português</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload CV button - Mobile -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="block mx-3 my-2 px-6 py-2 rounded-full border border-gray-300 text-gray-700 text-center font-medium transition-all duration-200 hover:border-gray-400" style="font-family: 'Montserrat', sans-serif;">Upload CV</a>
+
+                    <a href="index.html#contact" class="block mx-3 my-2 px-6 py-2 rounded-full text-white text-center font-medium transition-all duration-200 hover:opacity-90" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">Contact me</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pb-16">
+        <!-- Hero Section -->
+        <section class="px-6 lg:px-8 mb-0 relative overflow-hidden">
+            <!-- Background that ends at image middle -->
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, #f5f5f5 0%, #f5f5f5 calc(50% + 150px), transparent calc(50% + 150px), transparent 100%);"></div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- Project Title -->
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight" style="font-family: 'Montserrat', sans-serif;" data-translate="ca-project-title">
+                        C&A New App Design System
+                    </h1>
+                </div>
+
+                <!-- Project Mockup Image -->
+                <div class="text-center mb-0">
+                    <div class="relative overflow-hidden shadow-2xl cursor-pointer" style="border-radius: 32px;">
+                        <img src="images/cea hero.svg" alt="C&A New App Project" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="remove-all-padding">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <!-- Content wrapper for better readability while maintaining alignment -->
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="project-context">Context</h2>
+                    <div class="prose prose-lg text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+                        <p class="mb-6" data-translate="ca-context">
+                            C&A faced a critical challenge: the fashion retail industry was rapidly digitalizing, and their existing digital experience was falling behind. Competitors were offering sleek, modern interfaces while C&A's fragmented design patterns created inconsistent user experiences and slowed development cycles.
+                        </p>
+                        <p class="mb-6" data-translate="ca-context-2">
+                            Recognizing that incremental updates wouldn't suffice, we needed to rebuild the design system entirely. This wasn't just about aesthetics—it was about creating a scalable foundation that would enable the company to compete in the modern digital retail landscape. A comprehensive design system would ensure consistency across all touchpoints, accelerate feature development, and deliver the intuitive, contemporary experience customers expected from a leading fashion brand.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problems Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <!-- Content and image aligned to full container width -->
+                <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="problems-title">Problems</h2>
+
+                <!-- Text content with readable width -->
+                <div class="max-w-4xl">
+                    <p class="text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="problems-intro">
+                        The existing C&A mobile app faced critical usability and business challenges.
+                    </p>
+
+                    <!-- Problems List -->
+                    <div class="mb-8">
+                        <ul class="space-y-3 text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span><strong style="color: #57A2B8;">Outdated interface</strong> that didn't reflect modern fashion retail standards</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span><strong style="color: #57A2B8;">Complex navigation</strong> making product discovery difficult for users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span><strong style="color: #57A2B8;">Poor checkout experience</strong> leading to high cart abandonment rates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span><strong style="color: #57A2B8;">Inconsistent design system</strong> across different app sections</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-400 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span><strong style="color: #57A2B8;">Low user engagement</strong> and poor retention metrics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Problems Image - Full container width for perfect alignment with hero -->
+                <div class="mt-16">
+                    <img src="images/cea legacy.svg" alt="C&A App Problems" class="w-full h-auto rounded-lg">
+
+                    <!-- Image Subtitle -->
+                    <p class="text-lg text-gray-600 mt-4" style="font-family: 'Montserrat', sans-serif; text-align: left !important;">
+                        Outdated interface and complex user flows hindering the shopping experience
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="process-title">Process</h2>
+
+                <!-- Content with readable width -->
+                <div class="max-w-4xl">
+                    <p class="text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;" data-translate="process-intro">
+                        A comprehensive design approach focusing on user research, modern interface design, and seamless shopping experience.
+                    </p>
+
+                    <!-- Process List -->
+                    <ul class="space-y-4 text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        <li class="flex items-start">
+                            <span class="inline-block w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1 flex-shrink-0">1</span>
+                            User research and competitive analysis of fashion retail apps
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1 flex-shrink-0">2</span>
+                            Information architecture redesign for improved product discovery
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1 flex-shrink-0">3</span>
+                            Wireframes and prototyping for key user flows
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1 flex-shrink-0">4</span>
+                            Visual design system creation and component library
+                        </li>
+                        <li class="flex items-start">
+                            <span class="inline-block w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1 flex-shrink-0">5</span>
+                            Usability testing and iterative improvements
+                        </li>
+                    </ul>
+
+                    <!-- Research & Analysis Title -->
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6 mt-20" style="font-family: 'Montserrat', sans-serif;" data-translate="research-analysis-title">Research & Analysis</h3>
+
+                    <!-- Research content -->
+                    <div class="space-y-6 text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;">User Research</h4>
+                            <p>Conducted comprehensive user interviews and surveys to understand customer pain points, shopping behaviors, and expectations from a modern fashion retail app. Key insights revealed users prioritized visual product discovery, simplified checkout, and personalized recommendations.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;">Competitive Analysis</h4>
+                            <p>Analyzed leading fashion retail apps including Zara, H&M, Renner, and Riachuelo to identify best practices in mobile commerce, visual merchandising, and user experience patterns that drive engagement and conversions.</p>
+
+                            <!-- Competitive Analysis Images -->
+                            <div class="flex space-x-4 mt-6">
+                                <img src="images/Zara app.svg" alt="Zara App Analysis" class="w-1/2 h-auto rounded-lg">
+                                <img src="images/Renner app.svg" alt="Renner App Analysis" class="w-1/2 h-auto rounded-lg">
+                            </div>
+                            <div class="flex space-x-4 mt-4">
+                                <img src="images/Riachuelo app.svg" alt="Riachuelo App Analysis" class="w-1/2 h-auto rounded-lg">
+                                <img src="images/HM app.svg" alt="H&M App Analysis" class="w-1/2 h-auto rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Architecture Redesign Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-6 mt-20" style="font-family: 'Montserrat', sans-serif;" data-translate="ia-redesign-title">Information Architecture Redesign</h3>
+
+                <!-- Content with readable width -->
+                <div class="max-w-4xl">
+                    <p class="text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        A complete restructuring of the app's information architecture to improve product discovery and create intuitive navigation patterns that align with user mental models.
+                    </p>
+
+                    <!-- Current vs New IA Comparison -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div>
+                            <h3 class="text-xl font-semibold text-red-600 mb-4" style="font-family: 'Montserrat', sans-serif;">Before: Complex Navigation</h3>
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <ul class="space-y-2 text-gray-700" style="font-family: 'Montserrat', sans-serif;">
+                                    <li>• Deep nested category structures</li>
+                                    <li>• Unclear product groupings</li>
+                                    <li>• Multiple pathways to same content</li>
+                                    <li>• Hidden discovery features</li>
+                                    <li>• Inconsistent filtering options</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-green-600 mb-4" style="font-family: 'Montserrat', sans-serif;">After: Streamlined Discovery</h3>
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <ul class="space-y-2 text-gray-700" style="font-family: 'Montserrat', sans-serif;">
+                                    <li>• Flat, intuitive category structure</li>
+                                    <li>• Visual-first product browsing</li>
+                                    <li>• Consistent navigation patterns</li>
+                                    <li>• Prominent search and filters</li>
+                                    <li>• Smart product recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Improvements -->
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;">Key Improvements</h3>
+
+                    <div class="space-y-6 text-lg text-gray-600 mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">1. Simplified Category Structure</h4>
+                            <p>Reduced navigation depth from 4-5 levels to maximum 3 levels, organizing products by logical groupings that match customer shopping behaviors identified in user research.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">2. Visual Navigation Hierarchy</h4>
+                            <p>Implemented card-based navigation with high-quality imagery and clear typography hierarchy, making category browsing more intuitive and visually appealing.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">3. Enhanced Search & Filtering</h4>
+                            <p>Redesigned search functionality with auto-suggestions, visual filters, and smart categorization to help users quickly find specific products or discover new ones.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">4. Contextual Product Discovery</h4>
+                            <p>Integrated recommendation engines throughout the user journey, from homepage to checkout, ensuring relevant product discovery at every touchpoint.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design System Section -->
+        <section class="remove-all-padding section-spacing">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-16" style="font-family: 'Montserrat', sans-serif;" data-translate="design-system-title">Building a Design System for Modern Retail: Strategy, Structure, and Impact</h2>
+
+                <!-- Content with readable width -->
+                <div class="max-w-4xl">
+                    <div class="space-y-8 text-lg text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+
+                        <!-- Why a New Design System Was Essential -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="why-ds-essential-title">Why a New Design System Was Essential</h4>
+                            <p class="mb-4 text-left">
+                                The decision to rebuild C&A's design system from the ground up wasn't simply about visual modernization—it was a strategic investment in the company's digital future. The existing fragmented design patterns were creating compounding problems: every new feature required custom components, inconsistencies multiplied across platforms, and development velocity slowed to a crawl. Meanwhile, competitors with mature design systems were shipping features in weeks while C&A struggled with months-long development cycles.
+                            </p>
+                            <p class="text-left">
+                                A comprehensive design system would serve as the foundation for everything that followed: ensuring visual and functional consistency across all touchpoints, dramatically accelerating development speed, reducing technical debt, enabling scalability as the platform grew, and most importantly, delivering the cohesive, polished experience that modern fashion retail customers expected.
+                            </p>
+                        </div>
+
+                        <!-- Design System Strategy and Philosophy -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="ds-strategy-title">Design System Strategy and Philosophy</h4>
+                            <p class="mb-4 text-left">
+                                Our approach centered on creating a system that was both comprehensive and practical—robust enough to cover all use cases while remaining intuitive for designers and developers to implement.
+                            </p>
+
+                            <div class="ml-6">
+                                <h5 class="text-base font-semibold text-gray-900 mb-3 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="core-principles-title">Core Principles:</h5>
+
+                                <div class="mb-4">
+                                    <h6 class="text-base font-semibold text-gray-800 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="simplicity-principle-title">Simplicity Over Complexity</h6>
+                                    <p class="text-left">Rather than building an exhaustive library of countless variants, we focused on flexible, composable components that could adapt to multiple contexts. Each component was designed to solve real problems identified in our research, not theoretical edge cases.</p>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6 class="text-base font-semibold text-gray-800 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Documentation as a First-Class Citizen</h6>
+                                    <p class="text-left">We recognized that a design system is only as good as its documentation. Every component included comprehensive guidelines covering three critical dimensions: usability (interaction patterns, use cases, best practices), accessibility (WCAG compliance, keyboard navigation, screen reader support), and technical implementation (code examples, API documentation, integration guides).</p>
+                                </div>
+
+                                <div>
+                                    <h6 class="text-base font-semibold text-gray-800 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Token-Based Architecture</h6>
+                                    <p class="text-left">We established a foundational layer of design tokens—color, typography, spacing, and motion values—that could be consistently applied across all components. This ensured visual coherence while enabling future flexibility; updating a single token would cascade changes throughout the entire system.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Structure and Components -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="system-structure-title">System Structure and Components</h4>
+                            <p class="mb-4 text-left">
+                                The design system was organized into four distinct layers, each building upon the previous:
+                            </p>
+
+                            <div class="ml-6 space-y-4">
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Foundation Layer: Design Tokens</h5>
+                                    <p class="text-left">The atomic level of our system included color palettes (primary, secondary, semantic colors for states), typography scale (font families, sizes, weights, line heights), spacing system (8px grid-based spacing scale), elevation and shadows, border radius values, and animation curves and durations. These tokens served as the single source of truth, ensuring consistency across every interface element.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Core Components Library</h5>
+                                    <p class="mb-2 text-left">We built a comprehensive library of essential interface elements, each thoroughly documented with usage guidelines, accessibility requirements, and implementation code. This included buttons and CTAs (primary, secondary, tertiary variants with loading and disabled states), form inputs (text fields, dropdowns, checkboxes, radio buttons with validation patterns), navigation elements (headers, footers, tabs, breadcrumbs optimized for e-commerce), cards and containers (product cards, content cards, promotional banners), and feedback components (alerts, toasts, loading states, error messages).</p>
+                                    <p class="text-left">Every component was designed with accessibility built-in from the start—proper color contrast, keyboard navigation, ARIA labels, and screen reader compatibility were non-negotiable requirements, not afterthoughts.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Pattern Library: Common Workflows</h5>
+                                    <p class="mb-2 text-left">Beyond individual components, we documented complete interaction patterns for common e-commerce workflows: product browsing patterns (grid views, list views, quick view modals), search and filtering interfaces (faceted search, visual filters, sorting options), shopping cart and checkout flows (cart management, address forms, payment interfaces), and product detail patterns (image galleries, size selectors, add-to-cart interactions).</p>
+                                    <p class="text-left">These patterns provided designers and developers with proven solutions for complex features, dramatically reducing design and development time for new functionality.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Platform-Specific Guidelines</h5>
+                                    <p class="text-left">Recognizing that mobile and web contexts have different constraints and opportunities, we created platform-specific documentation addressing responsive breakpoints and behaviors, touch target sizing for mobile, gesture patterns and interactions, and performance considerations for each platform.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Documentation: The Key to Adoption -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="documentation-title">Documentation: The Key to Adoption</h4>
+                            <p class="mb-4 text-left">
+                                The most sophisticated design system is worthless if teams don't use it. We invested heavily in creating documentation that was comprehensive, accessible, and actionable.
+                            </p>
+
+                            <div class="ml-6 space-y-4">
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">For Designers:</h5>
+                                    <p class="text-left">Figma component library with auto-layout and variants, usage guidelines with do's and don'ts, real-world examples from the live product, and design decision frameworks for component selection.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">For Developers:</h5>
+                                    <p class="text-left">Code snippets in React and React Native, integration guides with existing codebase, accessibility implementation checklist, and component API documentation with all props and configurations.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">For Product Managers:</h5>
+                                    <p class="text-left">Use case documentation showing when to use which components, accessibility and compliance information, performance implications of different patterns.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Measuring Impact -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="measuring-impact-title">Measuring Impact: The Business Case for Design Systems</h4>
+                            <p class="mb-4 text-left">
+                                The investment in a comprehensive design system delivered measurable returns across multiple dimensions:
+                            </p>
+
+                            <div class="ml-6 space-y-4">
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Development Velocity</h5>
+                                    <p class="text-left">With reusable, well-documented components, feature development time decreased by approximately 40%. New pages and features could be assembled from existing components rather than built from scratch, and consistent patterns reduced decision-making time during implementation.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Consistency and Quality</h5>
+                                    <p class="text-left">Visual and functional consistency across the app improved dramatically. Users no longer encountered different button styles, form behaviors, or navigation patterns depending on which section they were in. This consistency built trust and reduced cognitive load, directly improving user satisfaction metrics.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Accessibility Compliance</h5>
+                                    <p class="text-left">By building accessibility into every component from the start, we ensured WCAG compliance across the entire platform. This not only expanded our potential user base but also reduced legal risk and demonstrated C&A's commitment to inclusive design.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Reduced Technical Debt</h5>
+                                    <p class="text-left">Instead of accumulating custom, one-off solutions that would require future maintenance, every feature built with design system components contributed to a more maintainable, scalable codebase. Bug fixes and improvements to core components automatically propagated throughout the entire application.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Cross-Platform Consistency</h5>
+                                    <p class="text-left">With a unified design system powering both mobile app and web experiences, C&A could deliver a cohesive brand experience regardless of how customers chose to shop. Design and development resources could be shared across platforms, maximizing efficiency.</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="text-base font-semibold text-gray-900 mb-2 text-left" style="color: #000000; font-family: 'Montserrat', sans-serif;">Faster Iteration and Experimentation</h5>
+                                    <p class="text-left">The design system's flexibility enabled rapid prototyping and testing of new features. Teams could quickly assemble and validate new concepts using existing components, dramatically shortening the design-to-development cycle and enabling data-driven iteration.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Long-Term Strategic Value -->
+                        <div class="text-left">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4" style="color: #000000; font-family: 'Montserrat', sans-serif;" data-translate="strategic-value-title">Long-Term Strategic Value</h4>
+                            <p class="mb-4 text-left">
+                                Beyond immediate efficiency gains, the design system positioned C&A for sustainable growth:
+                            </p>
+
+                            <div class="ml-6">
+                                <p class="mb-2 text-left"><strong>Scalability:</strong> As the platform expands with new features and markets, the system provides a proven foundation rather than requiring redesign from scratch.</p>
+                                <p class="mb-2 text-left"><strong>Brand Consistency:</strong> The system serves as a living embodiment of C&A's brand, ensuring consistency as teams and products grow.</p>
+                                <p class="mb-2 text-left"><strong>Knowledge Preservation:</strong> Comprehensive documentation captures design and development decisions, reducing dependency on individual team members and facilitating onboarding.</p>
+                                <p class="mb-4 text-left"><strong>Innovation Enablement:</strong> By solving common interface challenges once, teams can focus creative energy on differentiating features rather than reinventing basic components.</p>
+                            </div>
+
+                            <p class="text-left">
+                                The design system transformed how C&A builds digital products—from scattered, inconsistent implementations to a cohesive, efficient, and scalable approach that serves as the foundation for the company's digital transformation in the competitive fashion retail landscape.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Design System Images -->
+                <div class="mt-16 space-y-8">
+                    <div>
+                        <img src="images/BORDAS.svg" alt="Design System Borders" class="w-full h-auto rounded-lg">
+                    </div>
+                    <div>
+                        <img src="images/Fontes.svg" alt="Design System Typography" class="w-full h-auto rounded-lg border border-gray-200">
+                    </div>
+                    <div>
+                        <img src="images/float-notifications.svg" alt="Design System Notifications" class="w-full h-auto rounded-lg">
+                    </div>
+                    <div>
+                        <img src="images/Buttons.svg" alt="Design System Buttons" class="w-full h-auto rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+            <p style="font-family: 'Montserrat', sans-serif;" data-translate="footer-text">
+                © 2024 Beatriz Tomazelli. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

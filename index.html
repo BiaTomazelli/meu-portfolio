@@ -5,277 +5,760 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Nome - Portfólio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
-    <div class="bg-white">
-        <header class="absolute inset-x-0 top-0 z-50">
-            <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-                <div class="flex lg:flex-1">
-                    <a href="#home" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Seu Nome</span>
-                        <span class="text-xl font-bold text-indigo-600">Seu Nome</span>
-                    </a>
-                </div>
-                <div class="flex lg:hidden">
-                    <button type="button" id="mobile-menu-button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Open main menu</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="w-6 h-6">
-                            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#home" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Home</a>
-                    <a href="#about" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Sobre</a>
-                    <a href="#projects" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Projetos</a>
-                    <a href="#contact" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Contato</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#contact" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">Entre em Contato <span aria-hidden="true">&rarr;</span></a>
-                </div>
-            </nav>
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-center h-16 relative">
+                <!-- Logo/Name - Positioned on the left -->
+                <div class="absolute left-0 flex-shrink-0 flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900" style="font-family: 'Montserrat', sans-serif;" data-translate="header-name">Beatriz Tomazelli</h1>
+                    <div class="ml-6 h-6 w-px bg-gray-300"></div>
 
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="lg:hidden hidden">
-                <div class="fixed inset-0 z-50"></div>
-                <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#home" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Seu Nome</span>
-                            <span class="text-xl font-bold text-indigo-600">Seu Nome</span>
-                        </a>
-                        <button type="button" id="mobile-menu-close" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Close menu</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="w-6 h-6">
-                                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                    <!-- Language Selector - After divisor -->
+                    <div class="hidden md:block relative ml-4">
+                        <div class="language-selector-wrapper relative">
+                            <button type="button" class="language-selector-button flex items-center space-x-2 bg-transparent px-2 py-1 text-gray-900 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif; color: #1f2937 !important;">
+                                <span class="language-text text-sm font-semibold" style="color: #1f2937 !important; display: block !important; visibility: visible !important;">English</span>
+                                <img src="images/flag-us.svg" alt="US Flag" class="language-flag w-4 h-4 rounded-full object-cover border border-gray-200" />
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div class="language-dropdown absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-20 min-w-max">
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">English</span>
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                                <button type="button" class="language-option flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <span class="text-sm">Português</span>
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-4 h-4 rounded-full object-cover border border-gray-200" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links - Centered -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="#career" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="#projects" class="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+                </nav>
+
+                <!-- Upload CV & Contact Button & Mobile menu button - Positioned on the right -->
+                <div class="absolute right-0 flex items-center space-x-6">
+                    <!-- Upload CV button - Desktop -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="hidden md:inline-flex items-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium transition-all duration-200 hover:border-gray-400 hover:scale-105" style="font-family: 'Montserrat', sans-serif;">
+                        Upload CV
+                    </a>
+
+                    <!-- Contact me button - Desktop -->
+                    <a href="#contact" class="hidden md:inline-flex items-center px-6 py-2 rounded-full text-white font-medium transition-all duration-200 hover:opacity-90 hover:scale-105" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">
+                        Contact me
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" class="mobile-menu-button text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900" aria-label="Toggle mobile menu">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
                     </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <a href="#home" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Home</a>
-                                <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Sobre</a>
-                                <a href="#projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Projetos</a>
-                                <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Contato</a>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200">
+                    <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-home">Home</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-about">About</a>
+                    <a href="#career" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-career">Career</a>
+                    <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium" style="font-family: 'Montserrat', sans-serif;" data-translate="nav-projects">Projects</a>
+
+                    <!-- Language Selector - Mobile -->
+                    <div class="px-3 py-2">
+                        <div class="language-selector-mobile-wrapper">
+                            <button type="button" class="language-selector-mobile-button flex items-center justify-between w-full bg-transparent rounded-full px-4 py-2 text-gray-700 font-medium cursor-pointer focus:outline-none transition-colors duration-200" style="font-family: 'Montserrat', sans-serif;">
+                                <div class="flex items-center space-x-2">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="language-flag-mobile w-5 h-3" />
+                                    <span class="language-text-mobile">English</span>
+                                </div>
+                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Mobile dropdown menu -->
+                            <div class="language-dropdown-mobile mt-1 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="en" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-us.svg" alt="US Flag" class="w-5 h-3" />
+                                    <span>English</span>
+                                </button>
+                                <button type="button" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200" data-lang="pt" style="font-family: 'Montserrat', sans-serif;">
+                                    <img src="images/flag-brazil.svg" alt="Brazil Flag" class="w-5 h-3" />
+                                    <span>Português</span>
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Upload CV button - Mobile -->
+                    <a href="downloads/Beatriz Tomazelli_CV.pdf" download class="block mx-3 my-2 px-6 py-2 rounded-full border border-gray-300 text-gray-700 text-center font-medium transition-all duration-200 hover:border-gray-400" style="font-family: 'Montserrat', sans-serif;">Upload CV</a>
+
+                    <a href="#contact" class="block mx-3 my-2 px-6 py-2 rounded-full text-white text-center font-medium transition-all duration-200 hover:opacity-90" style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;" data-translate="contact-me">Contact me</a>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <section id="home" class="px-6 pt-14 lg:px-8 relative" style="background-color: white; padding: 148px 248px;">
+    <!-- Add top padding to account for fixed header -->
+    <div class="pt-16"></div>
+
+
+    <section id="home" class="bg-white px-6 lg:px-8 relative" style="background-color: white; padding: 20px 248px 0px 248px;">
             <div class="text-center max-w-4xl mx-auto">
-                <div id="hero-animation" class="hero-lottie-container"></div>
-                <p class="mt-8 text-lg font-medium sm:text-xl" style="color: #161616;">UX/UI Designer specialized in Design Systems, crafting simple, scalable, and consistent digital experiences.</p>
+                <div class="hero-lottie-container">
+                    <div id="hero-lottie-animation" class="lottie-animation"></div>
+                </div>
+
+            </div>
+
+            <!-- Company Logos Section -->
+            <div class="bg-white" style="padding: 24px 0;">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="flex items-center justify-center">
+                        <div class="flex-1 border-t border-gray-300 mr-6"></div>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 px-6" style="font-family: 'Montserrat', sans-serif;" data-translate="design-adventures">Design adventures at</h2>
+                        <div class="flex-1 border-t border-gray-300 ml-6"></div>
+                    </div>
+                    <div class="mx-auto mt-16 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+                        <a href="#itau-career" class="col-span-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <img width="158" height="48" src="images/itau.png" alt="Itau" class="max-h-12 w-full object-contain company logo" />
+                        </a>
+                        <a href="#santander-career" class="col-span-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <img width="158" height="48" src="images/Santander.png" alt="Santander" class="max-h-12 w-full object-contain company logo" />
+                        </a>
+                        <a href="#ca-career" class="col-span-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <img width="158" height="48" src="images/cea.png" alt="C&A" class="max-h-12 w-full object-contain company logo" />
+                        </a>
+                        <a href="#dex-career" class="col-span-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <img width="158" height="48" src="images/dex (1).png" alt="Dex" class="max-h-12 w-full object-contain company logo" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
+
+    <!-- Spacing Section -->
+    <div class="bg-white" style="padding: 100px 0;">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <!-- Empty spacing section -->
+        </div>
     </div>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Sou um desenvolvedor apaixonado por tecnologia com experiência em desenvolvimento web moderno. Especializado em criar soluções eficientes e interfaces intuitivas.</p>
-                    <p>Sempre em busca de novos desafios e oportunidades para crescer profissionalmente, combinando criatividade com conhecimento técnico.</p>
+    <section id="about" class="bg-white about-section-reorganized" style="padding: 50px 0;">
+        <div class="w-full px-6 lg:px-8">
+            <div class="w-full text-center">
+                <!-- Title - Accordion Header -->
+                <div class="mb-16">
+                    <!-- Title with star background -->
+                    <div class="relative mb-12">
+                        <!-- Yellow star as background decoration -->
+                        <img src="images/Sparkle (2).png" alt="Sparkle decoration" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none" style="width: 200px; height: 200px; object-fit: contain;" />
+                        <!-- Title text overlaying the star -->
+                        <h2 class="text-7xl font-bold text-gray-900 text-center relative z-10" style="font-family: 'Montserrat', sans-serif;" data-translate="about-title">About me</h2>
+                    </div>
 
-                    <div class="skills">
-                        <h3>Tecnologias</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fab fa-html5"></i>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-css3-alt"></i>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-react"></i>
-                                <span>React</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-node-js"></i>
-                                <span>Node.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-git-alt"></i>
-                                <span>Git</span>
+                    <!-- Accordion trigger with lines and arrow -->
+                    <div class="accordion-header cursor-pointer" id="aboutAccordionHeader">
+                        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div class="flex items-center justify-center">
+                                <div class="flex-1 border-t border-gray-300 mr-6"></div>
+                                <div class="accordion-arrow-clean px-6">
+                                    <svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform transition-transform duration-300" style="color: #1f2937;">
+                                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1 border-t border-gray-300 ml-6"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <h3>2+</h3>
-                        <p>Anos de Experiência</p>
+
+                <!-- Accordion Content - Hidden by default -->
+                <div class="accordion-content" id="aboutAccordionContent">
+                    <!-- Image placeholders -->
+                    <div class="w-full text-center about-images">
+                        <div class="text-left max-w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-32">
+                            <div class="grid grid-cols-5 gap-4">
+                                <figure class="diff aspect-square" style="border-radius: 16px; overflow: hidden;" tabindex="0">
+                                    <div class="diff-item-1" role="img" tabindex="0">
+                                        <img alt="About me photo 1" src="images/bf cea.jpeg" />
+                                    </div>
+                                    <div class="diff-item-2" role="img">
+                                        <img alt="About me photo 1 blurred" src="images/bf cea.jpeg" class="blur-lg" />
+                                    </div>
+                                    <div class="diff-resizer"></div>
+                                </figure>
+                                <figure class="diff aspect-square" style="border-radius: 16px; overflow: hidden;" tabindex="0">
+                                    <div class="diff-item-1" role="img" tabindex="0">
+                                        <img alt="About me photo 2" src="images/be.jpeg" />
+                                    </div>
+                                    <div class="diff-item-2" role="img">
+                                        <img alt="About me photo 2 blurred" src="images/be.jpeg" class="blur-lg" />
+                                    </div>
+                                    <div class="diff-resizer"></div>
+                                </figure>
+                                <figure class="diff aspect-square" style="border-radius: 16px; overflow: hidden;" tabindex="0">
+                                    <div class="diff-item-1" role="img" tabindex="0">
+                                        <img alt="About me photo 3" src="images/friends.jpeg" />
+                                    </div>
+                                    <div class="diff-item-2" role="img">
+                                        <img alt="About me photo 3 blurred" src="images/friends.jpeg" class="blur-lg" />
+                                    </div>
+                                    <div class="diff-resizer"></div>
+                                </figure>
+                                <figure class="diff aspect-square" style="border-radius: 16px; overflow: hidden;" tabindex="0">
+                                    <div class="diff-item-1" role="img" tabindex="0">
+                                        <img alt="About me photo 4" src="images/award.jpeg" />
+                                    </div>
+                                    <div class="diff-item-2" role="img">
+                                        <img alt="About me photo 4 blurred" src="images/award.jpeg" class="blur-lg" />
+                                    </div>
+                                    <div class="diff-resizer"></div>
+                                </figure>
+                                <figure class="diff aspect-square" style="border-radius: 16px; overflow: hidden;" tabindex="0">
+                                    <div class="diff-item-1" role="img" tabindex="0">
+                                        <img alt="About me photo 5" src="images/pepo.jpeg" />
+                                    </div>
+                                    <div class="diff-item-2" role="img">
+                                        <img alt="About me photo 5 blurred" src="images/pepo.jpeg" class="blur-lg" />
+                                    </div>
+                                    <div class="diff-resizer"></div>
+                                </figure>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Projetos Concluídos</p>
+
+                    <!-- Text content - Full width below images -->
+                    <div class="max-w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-32 about-text-full-width">
+                        <div class="w-full space-y-6 text-center p-8" style="background-color: #f5f5f5; border-radius: 16px;">
+                            <p class="text-lg text-gray-700 mb-6 leading-relaxed" style="font-family: 'Montserrat', sans-serif; font-weight: 600;" data-translate="about-intro">
+                                Hey! I'm Beatriz, a designer who believes that great design is invisible—it just works. My specialty? Building Design Systems that help teams create faster, better, and more consistently.
+                            </p>
+                            <p class="text-lg text-gray-700 mb-6 leading-relaxed" style="font-family: 'Montserrat', sans-serif; font-weight: 600;" data-translate="about-experience">
+                                I've spent years turning complex problems into simple, elegant solutions. Whether it's designing for startups or established companies, my goal is always the same: create experiences that users love and teams can scale.
+                            </p>
+                            <p class="text-lg text-gray-700 leading-relaxed" style="font-family: 'Montserrat', sans-serif; font-weight: 600;" data-translate="about-passion">
+                                Beyond pixels and prototypes, I'm passionate about understanding what makes people tick and using that insight to design products that truly make a difference. I love flexing my creativity in everything I do—whether it's crafting unique design solutions or geeking out over pop culture and the latest sci-fi series. For me, creativity isn't just part of my work; it's how I explore and connect with the world.
+                            </p>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <h3>100%</h3>
-                        <p>Satisfação do Cliente</p>
+
+                    <!-- Skills bars - Centralized, below text -->
+                    <div class="max-w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-32">
+                        <div class="flex justify-center">
+                            <div class="w-full lg:w-3/5 space-y-8">
+                                <!-- Figma -->
+                                <div class="experience-item" data-skill="figma">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;" data-translate="figma-skill">Figma</h4>
+                                        <span class="skill-percentage text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;">88%</span>
+                                    </div>
+                                    <div class="relative skill-bar-container" style="height: 14px;">
+                                        <div class="w-full rounded-full skill-track" style="height: 14px;"></div>
+                                        <div class="absolute top-0 left-0 rounded-full skill-fill" style="width: 88%; height: 14px;"></div>
+                                        <div class="absolute top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full cursor-pointer skill-handle transition-transform hover:scale-110" style="left: 88%; margin-left: -12px; z-index: 10; border: 1px solid #000000;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Sketch -->
+                                <div class="experience-item" data-skill="sketch">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;" data-translate="sketch-skill">Sketch</h4>
+                                        <span class="skill-percentage text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;">55%</span>
+                                    </div>
+                                    <div class="relative skill-bar-container" style="height: 14px;">
+                                        <div class="w-full rounded-full skill-track" style="height: 14px;"></div>
+                                        <div class="absolute top-0 left-0 rounded-full skill-fill" style="width: 55%; height: 14px;"></div>
+                                        <div class="absolute top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full cursor-pointer skill-handle transition-transform hover:scale-110" style="left: 55%; margin-left: -12px; z-index: 10; border: 1px solid #000000;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- VS Code -->
+                                <div class="experience-item" data-skill="vscode">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;" data-translate="vscode-skill">VS Code</h4>
+                                        <span class="skill-percentage text-lg font-semibold text-gray-800" style="font-family: 'Montserrat', sans-serif;">25%</span>
+                                    </div>
+                                    <div class="relative skill-bar-container" style="height: 14px;">
+                                        <div class="w-full rounded-full skill-track" style="height: 14px;"></div>
+                                        <div class="absolute top-0 left-0 rounded-full skill-fill" style="width: 25%; height: 14px;"></div>
+                                        <div class="absolute top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full cursor-pointer skill-handle transition-transform hover:scale-110" style="left: 25%; margin-left: -12px; z-index: 10; border: 1px solid #000000;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Visual hint for interaction -->
+                                <div class="mt-6 opacity-60">
+                                    <p class="text-sm text-gray-500 text-center" style="font-family: 'Montserrat', sans-serif; font-style: italic;" data-translate="skills-hint">
+                                        ✨ Try dragging the orange circles
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projetos</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code"></i>
+    <!-- Spacing Section -->
+    <div class="bg-white" style="padding: 40px 0;">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <!-- Empty spacing section -->
+        </div>
+    </div>
+
+    <!-- Where the magic happened Section -->
+    <section id="career" class="bg-white" style="padding: 50px 0;">
+        <div class="w-full px-6 lg:px-8">
+            <div class="w-full text-center">
+                <!-- Title - Accordion Header -->
+                <div class="mb-16">
+                    <!-- Title with sparkle background -->
+                    <div class="relative mb-12">
+                        <!-- Sparkle as background decoration -->
+                        <img src="images/Sparkle 3.png" alt="Sparkle decoration" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none" style="width: 200px; height: 200px; object-fit: contain;" />
+                        <!-- Title text overlaying the sparkle -->
+                        <h2 class="text-7xl font-bold text-gray-900 text-center relative z-10" style="font-family: 'Montserrat', sans-serif;" data-translate="career-title">Career</h2>
                     </div>
-                    <div class="project-content">
-                        <h3>E-commerce Moderno</h3>
-                        <p>Plataforma de e-commerce responsiva com React e Node.js, incluindo sistema de pagamentos e gerenciamento de estoque.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
+
+                    <!-- Accordion trigger with lines and arrow -->
+                    <div class="accordion-header cursor-pointer" id="experienceAccordionHeader">
+                        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div class="flex items-center justify-center">
+                                <div class="flex-1 border-t border-gray-300 mr-6"></div>
+                                <div class="accordion-arrow-clean px-6">
+                                    <svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform transition-transform duration-300" style="color: #1f2937;">
+                                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1 border-t border-gray-300 ml-6"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>App de Produtividade</h3>
-                        <p>Aplicativo web para gerenciamento de tarefas com interface intuitiva e sincronização em tempo real.</p>
-                        <div class="project-tech">
-                            <span>Vue.js</span>
-                            <span>Express</span>
-                            <span>Socket.io</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
+                <!-- Accordion Content - Timeline -->
+                <div class="accordion-content" id="experienceAccordionContent">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-8">
+                        <!-- Timeline Container -->
+                        <div class="relative">
+                            <!-- Timeline Line -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full"></div>
+
+                            <!-- Timeline Items -->
+                            <!-- Itau -->
+                            <div id="itau-career" class="relative flex items-start mb-12 timeline-item">
+                                <!-- Date Pill (Left) -->
+                                <div class="flex-1 flex justify-end pr-8">
+                                    <div class="px-4 py-2 rounded-full text-sm font-medium shadow-lg" style="background-color: rgba(86, 162, 183, 0.2); color: #56A2B7;">
+                                        2018-2021
+                                    </div>
+                                </div>
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg z-10 mt-2" style="background-color: #56A2B7;"></div>
+                                <!-- Content (Right) -->
+                                <div class="flex-1 pl-8">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="itau-title">Itau</h3>
+                                    <div class="bg-white p-8 rounded-xl shadow-lg" style="width: 150%;">
+                                        <p class="text-gray-700 leading-relaxed mb-4 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="itau-details">
+                                            Started my UX career in the UX Engineering squad, managing UI Kits for the Cards, Rede, and Corporate Banking teams. Contributed to documentation efforts and the early development of the company's Design System. Later transitioned to the Digital Client Acquisition team, where I designed end-to-end journeys for Microcredit and Loan products targeting non-account holders.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Design Systems</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Figma</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Banking</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">User Journey</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Santander -->
+                            <div id="santander-career" class="relative flex items-start mb-12 timeline-item">
+                                <!-- Content (Left) -->
+                                <div class="flex-1 pr-8 text-right">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3" style="font-family: 'Montserrat', sans-serif;" data-translate="santander-title">Santander</h3>
+                                    <div class="bg-white p-8 rounded-xl shadow-lg" style="width: 150%; margin-left: -50%;">
+                                        <p class="text-gray-700 leading-relaxed mb-4 text-right" style="font-family: 'Montserrat', sans-serif;" data-translate="santander-details">
+                                            Collaborated with Santander's global team to design and document new components for the design system. Led the creation and adaptation of app illustrations for the Brazilian market, developing characters and scenarios that resonated with local audiences.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2 justify-end">
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Design System</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Illustration</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Global Collaboration</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Figma</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg z-10 mt-2" style="background-color: #009551;"></div>
+                                <!-- Date Pill (Right) -->
+                                <div class="flex-1 flex justify-start pl-8">
+                                    <div class="px-4 py-2 rounded-full text-sm font-medium shadow-lg" style="background-color: rgba(0, 149, 81, 0.2); color: #009551;">
+                                        2021-2022
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- C&A -->
+                            <div id="ca-career" class="relative flex items-start mb-12 timeline-item">
+                                <!-- Date Pill (Left) -->
+                                <div class="flex-1 flex justify-end pr-8">
+                                    <div class="px-4 py-2 rounded-full text-sm font-medium shadow-lg" style="background-color: rgba(220, 67, 114, 0.2); color: #DC4372;">
+                                        2022-2024
+                                    </div>
+                                </div>
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg z-10 mt-2" style="background-color: #DC4372;"></div>
+                                <!-- Content (Right) -->
+                                <div class="flex-1 pl-8">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-title">C&A</h3>
+                                    <div class="bg-white p-8 rounded-xl shadow-lg" style="width: 150%;">
+                                        <p class="text-gray-700 leading-relaxed mb-4 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-details">
+                                            Led Design System maintenance and served as one of the lead designers for the company's new app and website redesign. Created and documented new components while developing comprehensive illustration guidelines. Conducted accessibility audits for web and mobile platforms ensuring WCAG compliance. Designed key app features including the Notification Center, Free Shipping experience, and product Showcase.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Design System</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Accessibility</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">WCAG</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">E-commerce</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Product Design</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Figma</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dex -->
+                            <div id="dex-career" class="relative flex items-start timeline-item">
+                                <!-- Content (Left) -->
+                                <div class="flex-1 pr-8 text-right">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3" style="font-family: 'Montserrat', sans-serif;" data-translate="dex-title">Dex</h3>
+                                    <div class="bg-white p-8 rounded-xl shadow-lg" style="width: 150%; margin-left: -50%;">
+                                        <p class="text-gray-700 leading-relaxed mb-4 text-right" style="font-family: 'Montserrat', sans-serif;" data-translate="dex-details">
+                                            Led the platform redesign, building a new Design System from the ground up with established patterns and consistency standards. Created a scalable foundation that enables the design of new user journeys and features across the platform.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2 justify-end">
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Design System</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Platform Design</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Redesign</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Figma</span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Startup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg z-10 mt-2" style="background-color: #FCD351;"></div>
+                                <!-- Date Pill (Right) -->
+                                <div class="flex-1 flex justify-start pl-8">
+                                    <div class="px-4 py-2 rounded-full text-sm font-medium shadow-lg" style="background-color: rgba(252, 211, 81, 0.2); color: #B8941A;">
+                                        2025 - Present
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Dashboard Analytics</h3>
-                        <p>Dashboard interativo para visualização de dados com gráficos dinâmicos e relatórios personalizáveis.</p>
-                        <div class="project-tech">
-                            <span>Angular</span>
-                            <span>D3.js</span>
-                            <span>Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Vamos trabalhar juntos!</h3>
-                    <p>Estou sempre aberto a discutir novas oportunidades e projetos interessantes.</p>
+    <!-- Spacing Section -->
+    <div class="bg-white" style="padding: 40px 0;">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <!-- Empty spacing section -->
+        </div>
+    </div>
 
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>seu.email@exemplo.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+55 (11) 99999-9999</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>São Paulo, SP</span>
+    <!-- Projects Section -->
+    <section id="projects" class="bg-white" style="padding: 50px 0;">
+        <div class="w-full px-6 lg:px-8">
+            <div class="w-full text-center">
+                <!-- Title - Accordion Header -->
+                <div class="mb-16">
+                    <!-- Title with cloud background -->
+                    <div class="relative mb-12">
+                        <!-- Cloud as background decoration -->
+                        <img src="images/Cloud.png" alt="Cloud decoration" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none" style="width: 200px; height: 200px; object-fit: contain;" />
+                        <!-- Title text overlaying the cloud -->
+                        <h2 class="text-7xl font-bold text-gray-900 text-center relative z-10" style="font-family: 'Montserrat', sans-serif;" data-translate="projects-title">Projects</h2>
                     </div>
 
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                    <!-- Accordion trigger with lines and arrow -->
+                    <div class="accordion-header cursor-pointer" id="projectsAccordionHeader">
+                        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div class="flex items-center justify-center">
+                                <div class="flex-1 border-t border-gray-300 mr-6"></div>
+                                <div class="accordion-arrow-clean px-6">
+                                    <svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform transition-transform duration-300" style="color: #1f2937;">
+                                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1 border-t border-gray-300 ml-6"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+                <!-- Accordion Content - Projects Grid -->
+                <div class="accordion-content" id="projectsAccordionContent">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                        <!-- Projects Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                            <!-- Project Card 1 - Design System -->
+                            <div class="group cursor-pointer" onclick="window.open('dex-project.html', '_blank')">
+                                <!-- Card Image Container -->
+                                <div class="relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 mb-6">
+                                    <img src="images/UI revamp card.svg" alt="UI Revamp Design System" class="w-full h-full object-cover" style="width: 600px; height: 400px;">
+                                </div>
+                                <!-- Title and Description Container -->
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1 text-left">
+                                        <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="dex-project-title">Dex UI Revamp</h3>
+                                        <p class="text-lg text-gray-600 leading-relaxed text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="dex-project-description">Redesigning the user experience and building scalable foundation.</p>
+                                    </div>
+                                    <div class="ml-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Card 2 - Mobile App -->
+                            <a href="ca-new-app.html" class="block">
+                                <div class="group cursor-pointer">
+                                    <!-- Card Image Container -->
+                                    <div class="relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 mb-6">
+                                        <img src="images/C&A ds.svg" alt="C&A Design System" class="w-full h-full object-cover" style="width: 600px; height: 400px;">
+                                    </div>
+                                    <!-- Title and Description Container -->
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex-1 text-left">
+                                            <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-project-title">C&A New App Design System</h3>
+                                            <p class="text-lg text-gray-600 leading-relaxed text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-project-description">Building a new app experience.</p>
+                                        </div>
+                                        <div class="ml-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Project Card 3 - Brand Identity -->
+                            <div class="group cursor-pointer">
+                                <!-- Card Image Container -->
+                                <div class="relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 mb-6">
+                                    <img src="images/Santander illustras.svg" alt="Santander Illustrations" class="w-full h-full object-cover" style="width: 600px; height: 400px;">
+                                </div>
+                                <!-- Title and Description Container -->
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1 text-left">
+                                        <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="santander-project-title">Santander Illustration Guide</h3>
+                                        <p class="text-lg text-gray-600 leading-relaxed text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="santander-project-description">Illustration guideline for the Brazil team</p>
+                                    </div>
+                                    <div class="ml-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Card 4 - C&A Illustrations -->
+                            <div class="group cursor-pointer">
+                                <!-- Card Image Container -->
+                                <div class="relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 mb-6">
+                                    <img src="images/C&A illustras.svg" alt="C&A Illustrations" class="w-full h-full object-cover" style="width: 600px; height: 400px;">
+                                </div>
+                                <!-- Title and Description Container -->
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1 text-left">
+                                        <h3 class="text-2xl font-bold text-gray-900 mb-3 text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-illustrations-title">C&A Illustrations</h3>
+                                        <p class="text-lg text-gray-600 leading-relaxed text-left" style="font-family: 'Montserrat', sans-serif;" data-translate="cea-illustrations-description">illustration lib for the e-commerce</p>
+                                    </div>
+                                    <div class="ml-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Seu Email" required>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="contact-title">Let's work together</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" style="font-family: 'Montserrat', sans-serif;" data-translate="contact-subtitle">
+                    Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="form-name-label">Your Name *</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                            style="font-family: 'Montserrat', sans-serif;"
+                            data-translate-placeholder="form-name-placeholder"
+                            placeholder="Enter your full name"
+                        />
                     </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Assunto" required>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="form-email-label">Your Email *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                            style="font-family: 'Montserrat', sans-serif;"
+                            data-translate-placeholder="form-email-placeholder"
+                            placeholder="your.email@example.com"
+                        />
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+
+                    <!-- Project Type Field -->
+                    <div>
+                        <label for="project-type" class="block text-sm font-medium text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="form-project-label">Project Type *</label>
+                        <select
+                            id="project-type"
+                            name="project-type"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                            style="font-family: 'Montserrat', sans-serif;"
+                        >
+                            <option value="" data-translate="form-project-placeholder">Select project type</option>
+                            <option value="design-system" data-translate="form-project-design-system">Design System</option>
+                            <option value="mobile-app" data-translate="form-project-mobile-app">Mobile App Design</option>
+                            <option value="web-design" data-translate="form-project-web-design">Web Design</option>
+                            <option value="ux-research" data-translate="form-project-ux-research">UX Research</option>
+                            <option value="consulting" data-translate="form-project-consulting">UX Consulting</option>
+                            <option value="other" data-translate="form-project-other">Other</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-900 mb-2" style="font-family: 'Montserrat', sans-serif;" data-translate="form-message-label">Tell me about your project</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
+                            style="font-family: 'Montserrat', sans-serif;"
+                            data-translate-placeholder="form-message-placeholder"
+                            placeholder="Share details about your project, timeline, budget, and any specific requirements..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-4">
+                        <button
+                            type="submit"
+                            class="inline-flex items-center px-8 py-4 rounded-full text-white font-medium transition-all duration-200 hover:opacity-90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            style="background-color: #57A2B8; font-family: 'Montserrat', sans-serif;"
+                            data-translate="form-submit-button"
+                        >
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            Send Message
+                        </button>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div id="form-success" class="hidden text-center p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg" style="font-family: 'Montserrat', sans-serif;">
+                        <p data-translate="form-success-message">Thank you! Your message has been sent successfully. I'll get back to you soon!</p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="form-error" class="hidden text-center p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg" style="font-family: 'Montserrat', sans-serif;">
+                        <p data-translate="form-error-message">Sorry, there was an error sending your message. Please try again or email me directly.</p>
+                    </div>
                 </form>
             </div>
+
+            <!-- Direct Contact Info -->
+            <div class="text-center mt-12 pt-8 border-t border-gray-200">
+                <p class="text-gray-600 mb-6" style="font-family: 'Montserrat', sans-serif;" data-translate="contact-direct">
+                    Or reach out directly:
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <!-- Email Link -->
+                    <a href="mailto:beatriz.tomazellioliveira@gmail.com" class="inline-flex items-center text-lg font-medium transition-all duration-200 hover:opacity-70 hover:scale-105" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        beatriz.tomazellioliveira@gmail.com
+                    </a>
+
+                    <!-- Divider for desktop -->
+                    <div class="hidden md:block h-6 w-px bg-gray-300"></div>
+
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/beatriztomazelli/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-lg font-medium transition-all duration-200 hover:opacity-70 hover:scale-105" style="color: #57A2B8; font-family: 'Montserrat', sans-serif;">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span data-translate="linkedin-text">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+            <p style="font-family: 'Montserrat', sans-serif;" data-translate="footer-text">
+                © 2024 Beatriz Tomazelli. All rights reserved.
+            </p>
         </div>
     </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
     <script src="script.js"></script>
 </body>

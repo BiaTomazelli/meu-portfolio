@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Test</title>
+</head>
+<body>
+    <h1 data-translate="project-context">Context</h1>
+    <p data-translate="dex-context">Data Engineering is inherently hard, complex, technical, and inaccessible to most companies and teams...</p>
+
+    <button onclick="testPortuguese()">Test Portuguese</button>
+    <button onclick="testEnglish()">Test English</button>
+
+    <script src="script.js"></script>
+    <script>
+        function testPortuguese() {
+            console.log('Testing Portuguese translation...');
+            if (window.testTranslation) {
+                window.testTranslation();
+            } else {
+                console.error('testTranslation function not found');
+            }
+        }
+
+        function testEnglish() {
+            console.log('Testing English translation...');
+            // Manually call translation with 'en'
+            if (typeof translatePage !== 'undefined') {
+                translatePage('en');
+            } else {
+                console.error('translatePage function not found');
+            }
+        }
+    </script>
+</body>
+</html>
